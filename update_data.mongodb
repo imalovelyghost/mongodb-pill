@@ -1,0 +1,25 @@
+use('books');
+db.authors.find({}).pretty()
+db.authors.count({})
+db.books.find({}).pretty()
+db.books.count({})
+
+
+db.authors.update(
+        {Name:"Pepe"},
+        {$set:{death:new Date("2010-01-20")}}
+    )
+
+db.books.update(
+        {Title:"BookFour"},
+        {$set:{ReleaseYear:new Date("2010-01-20")}}
+)
+
+db.books.update(
+        {Title:"BookFive"},
+        {$push:{ReleaseYear:new Date("2010-01-20")}}
+)
+db.books.update(
+        {Title:"BookFive"},
+        {$set:{Title:"New Edition"}}
+)

@@ -1,0 +1,12 @@
+use('books');
+db.authors.find({}).pretty()
+db.authors.count({})
+db.books.find({}).pretty()
+db.books.count({})
+
+// Eliminate all the books for a given author
+db.books.deleteMany({"Authors.Name":"Pepe"})
+
+
+// Eliminate all the death authors
+db.authors.deleteMany({ "death": { $lt: new Date() }})

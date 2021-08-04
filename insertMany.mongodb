@@ -1,0 +1,120 @@
+
+use('books');
+db.authors.find({}).pretty()
+db.authors.count({})
+db.books.find({}).pretty()
+db.books.count({})
+
+
+
+db.authors.insertMany([
+  {
+    "Name": "Pepe",
+    "LastName": "Palotes",
+    "birthday": new Date("1994-01-02"),
+    "death": new Date("1999-01-29"),
+  },
+  {
+    "Name": "Pepa",
+    "LastName": "Palitos",
+    "birthday": new Date("1994-01-12"),
+    "death": new Date("2020-01-29"),
+  },
+  {
+    "Name": "Pepin",
+    "LastName": "Palillos",
+    "birthday": new Date("1996-11-22"),
+    "death": new Date("1996-12-29"),
+  },
+]);
+
+db.books.insertMany([
+  {
+    "Title": "Bookthree",
+    "ReleaseYear": [new Date("2020-03-22")],
+    "Category": "Literatura",
+    "Authors": [{
+    "_id":ObjectId("610a6ca7e90d23cc1b6f410f"),
+    "Name": "Pepe",
+    "LastName": "Palotes",
+    }],
+  },
+    {
+    "Title": "BookFour",
+    "ReleaseYear": [new Date("1999-10-17")],
+    "Category": "Historia",
+    "Authors": [{
+    "_id":ObjectId("610a6ca7e90d23cc1b6f4110"),
+    "Name": "Pepa",
+    "LastName": "Palitos",
+    }],
+  },
+]);
+
+db.books.insertMany([
+  {
+    "Title": "BookFive",
+    "ReleaseYear": [new Date("2020-03-22")],
+    "Category": "Narrativa",
+    "Authors": [{
+    "_id":ObjectId("610a6ca7e90d23cc1b6f4111"),
+     "Name": "Pepin",
+    "LastName": "Palillos",
+   }],
+  },
+    {
+    "Title": "BookSix",
+    "ReleaseYear": [new Date("1999-10-17")],
+    "Category": "Novela",
+    "Authors": [{
+    "_id":ObjectId("610a6ca7e90d23cc1b6f4111"),
+    "Name": "Pepin",
+    "LastName": "Palillos",
+   }],
+  },
+]);
+
+db.books.insertMany([
+  {
+    "Title": "BookSeven",
+    "ReleaseYear": [new Date("2020-03-22")],
+    "Category": "Narrativa",
+    "Authors": [{
+    "_id":ObjectId("610a6ca7e90d23cc1b6f4110"),
+     "Name": "Pepa",
+    "LastName": "Palitos",
+   }],
+  },
+    {
+    "Title": "BookEight",
+    "ReleaseYear": [new Date("1999-10-17")],
+    "Category": "Novela",
+    "Authors": [{
+    "_id":ObjectId("610a6ca7e90d23cc1b6f4110"),
+    "Name": "Pepa",
+    "LastName": "Palitos",
+   }],
+  },
+  {
+    "Title": "BookNine",
+    "ReleaseYear": [new Date("1999-10-17")],
+    "Category": "Ficcion",
+    "Authors": [{
+    "_id":ObjectId("610a6ca7e90d23cc1b6f410f"),
+    "Name": "Pepe",
+    "LastName": "Palotes",
+   }],
+  },
+    {
+    "Title": "BookTen",
+    "ReleaseYear": [new Date("1999-10-17")],
+    "Category": "Poesia",
+    "Authors": [{
+    "_id":ObjectId("610a6ca7e90d23cc1b6f4111"),
+    "Name": "Pepin",
+    "LastName": "Palillos",
+   }],
+  },
+]);
+
+

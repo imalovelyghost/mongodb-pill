@@ -1,0 +1,54 @@
+use('books');
+db.authors.find({}).pretty()
+db.authors.count({})
+db.books.find({}).pretty()
+db.books.count({})
+
+// Select all books
+db.books.find({}).pretty()
+
+// Select all books for a given category
+db.books.find({"Category": "Literatura"}).pretty()
+
+// Select all books published before 2002 ANTES
+db.books.find({ ReleaseYear: { $lt: new Date("2002-01-01") }}).pretty()
+
+// Select all books with more than one author
+
+db.books.update(
+        {Title:"Bookthree"},
+        {$push:{Authors:{
+        "_id":ObjectId("610a6ca7e90d23cc1b6f4111"),
+        "Name": "Pepin",
+        "LastName": "Palillos"
+      }}}
+)
+//db.collection.find( { field: { $size: 2 } } );
+//db.accommodations.find( { $where: "this.name.length > 1" } );
+//db.books.find({ Authors: { $size: 2 }}).pretty()
+db.books.find({ $where: "this.Authors.length >1"}).pretty()
+
+// Select all authors
+db.authors.find({}).pretty()
+
+// Select all death authors
+db.authors.find({ "death": { $lt: new Date() }}).pretty()
+
+// Select all authors born before 1990
+db.authors.find({ "birthday": { $gt: new Date("1990-01-01") }}).pretty()
+
+
+
+// Select all authors from a given country
+//db.collection.updateOne(filter, update, options)
+
+db.authors.find({"Country": "España"}).pretty()
+
+db.authors.updateOne({"Name":"Pepe"},{$set:{"Country":"Malasia"}})
+db.authors.updateOne({"Name":"Pepa"},{$set:{"Country":"España"}})
+db.authors.updateOne({"Name":"Pepin"},{$set:{"Country":"Hongria"}})
+
+
+
+
+
